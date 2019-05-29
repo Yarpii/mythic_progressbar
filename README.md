@@ -1,6 +1,6 @@
 # Mythic Progress Bar
 A simple action bar resource which allows actions to be visually displayed to the player and provides a callback function so actions can be peformed if the evnt was cancelled or not.
-
+RENAME RESOURCE TO mythic_progressbar
 ## How To Use:
 To use, you just need to add a TriggerEvent into your client script where you're wanting the event to happen. Example TriggerEvent call;
 
