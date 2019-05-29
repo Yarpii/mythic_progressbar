@@ -11,7 +11,7 @@ $('document').ready(function() {
           complete: function() {
             $(".progress-container").css({"display":"none"});
             $("#progress-bar").css("width", 0);
-            $.post('http://mythic_progbar/actionFinish', JSON.stringify({
+            $.post('http://mythic_progressbar/actionFinish', JSON.stringify({
                 })
             );
           }
@@ -26,7 +26,7 @@ $('document').ready(function() {
         setTimeout(function () {
             $(".progress-container").css({"display":"none"});
             $("#progress-bar").css("width", 0);
-            $.post('http://mythic_progbar/actionCancel', JSON.stringify({
+            $.post('http://mythic_progressbar/actionCancel', JSON.stringify({
                 })
             );
         }, 1000);
