@@ -5,7 +5,7 @@ RENAME RESOURCE TO mythic_progressbar
 To use, you just need to add a TriggerEvent into your client script where you're wanting the event to happen. Example TriggerEvent call;
 
 ```lua
-    TriggerEvent("mythic_progbar:client:progress", {
+    TriggerEvent("mythic_progressbar:client:progress", {
         name = "unique_action_name",
         duration = 10000,
         label = "Action Label",
