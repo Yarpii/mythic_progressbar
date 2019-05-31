@@ -28,8 +28,8 @@ local isAnim = false
 local isProp = false
 local prop_net = nil
 
-RegisterNetEvent("mythic_progbar:client:progress")
-AddEventHandler("mythic_progbar:client:progress", function(action, cb)
+RegisterNetEvent("mythic_progressbar:client:progress")
+AddEventHandler("mythic_progressbar:client:progress", function(action, cb)
     mythic_action = action
 
     if not IsEntityDead(GetPlayerPed(-1)) or mythic_action.useWhileDead then
@@ -49,7 +49,7 @@ AddEventHandler("mythic_progbar:client:progress", function(action, cb)
                 while isDoingAction do
                     Citizen.Wait(0)
                     if IsControlJustPressed(0, 178) and mythic_action.canCancel then
-                        TriggerEvent("mythic_progbar:client:cancel")
+                        TriggerEvent("mythic_progressbar:client:cancel")
                     end
                 end
                 if cb ~= nil then
@@ -64,20 +64,20 @@ AddEventHandler("mythic_progbar:client:progress", function(action, cb)
     end
 end)
 
-RegisterNetEvent("mythic_progbar:client:cancel")
-AddEventHandler("mythic_progbar:client:cancel", function()
+RegisterNetEvent("mythic_progressbar:client:cancel")
+AddEventHandler("mythic_progressbar:client:cancel", function()
     isDoingAction = false
     wasCancelled = true
 
-    TriggerEvent("mythic_progbar:client:actionCleanup")
+    TriggerEvent("mythic_progressbar:client:actionCleanup")
 
     SendNUIMessage({
         action = "mythic_progress_cancel"
     })
 end)
 
-RegisterNetEvent("mythic_progbar:client:actionCleanup")
-AddEventHandler("mythic_progbar:client:actionCleanup", function()
+RegisterNetEvent("mythic_progressbar:client:actionCleanup")
+AddEventHandler("mythic_progressbar:client:actionCleanup", function()
     local ped = PlayerPedId()
     ClearPedTasks(ped)
     StopAnimTask(ped, mythic_action.animDict, mythic_action.anim, 1.0)
@@ -186,7 +186,7 @@ end
 RegisterNUICallback('actionFinish', function(data, cb)
     -- Do something here
     isDoingAction = false
-    TriggerEvent("mythic_progbar:client:actionCleanup")
+    TriggerEvent("mythic_progressbar:client:actionCleanup")
     cb('ok')
 end)
 
